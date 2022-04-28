@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <title>Shop</title>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id='box'>
+            <div class='wrapper'>
+                 <form onsubmit="return checkForm();" id="form" action="customerBackend.php" method="post">
+                    <h2><em>WHAT ARE YOU PURCHASING.</em></h2>
+                    <label for="scrunkly"> <span class="costText"> $1.00 </span> &ensp; scrunkly</label><br>
+                    <input type='number' class='cost' id='scrunkly' name='scrunkly' required> units<br /><br />
+
+                    <label for="blorbo"> <span class="costText"> $2.00 </span>&ensp; blorbo</label><br>
+                    <input type='number' class='cost' id='blorbo' name='blorbo' required> units<br /><br />
+
+                    <label for="meowmeow"> <span class="costText"> $3.00 </span>&ensp; meow meow</label><br>
+                    <input type='number' class='cost' id='meowmeow' name='meowmeow' required> units<br /><br />
+                    <br>
+
+                    <label for="email">Username/Email:</label><br>
+                    <input type="email" id="email" name="email" required><br>
+                    <br>
+                    <label for="pwd">Password:</label><br>
+                    <input type="password" id="pwd" name="pwd"><br>
+                    <br>
+
+                    <p>Shipping:</p>
+                    <input type="radio" id="free" name="shipping" value="7 Day" required>
+                    <label for="html">Free &emsp;&ensp; 7 Days</label><br>
+                    <input type="radio" id="three" name="shipping" value="3 Day">
+                    <label for="css">$5.00 &emsp; 3 Days</label><br>
+                    <input type="radio" id="seven" name="shipping" value="Overnight">
+                    <label for="javascript">$50.00 &ensp; Overnight</label><br>
+                    <br>
+
+                    <input type="submit" value="Submit"><br>
+                    <input type="reset">
+                </form>
+            </div>
+        </div>
+    <script src="formChecker.js"></script>
+    </body>
+</html>

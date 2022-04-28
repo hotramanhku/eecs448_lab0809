@@ -29,3 +29,25 @@ body {
     color: #FCAF07;
     font-weight: bold;
 }
+
+th {
+    padding: 0.5em 1em;
+    background-color: #29345E;
+    color: #DEE0EB;
+}
+
+th.label {
+    text-align: right;
+}
+
+td {
+    text-align: center;
+}
+
+tr:nth-child(even) {
+    background-color: #ADB6CC;
+}
+
+tr:nth-child(odd) {
+    background-color: #D2D8EB;
+}

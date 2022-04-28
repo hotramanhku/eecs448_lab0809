@@ -1,24 +1,18 @@
-document.querySelector("#form").addEventListener('submit', (e)=>{
-     e.preventDefault();
-     //Or
-     //return false;
-});
-
 const checkForm = () => {
-    const cost = document.getElementsByName('cost');
+    const cost = document.getElementsByClassName('cost');
     const email = document.getElementById('email').value;
     const password = document.getElementById('pwd').value;
     const shipping = document.getElementsByName('shipping');
 
-    if (!isValidCost(cost))          { error('cost'); return; }
-    if (!isValidEmail(email))        { error('email'); return; }
-    if (!isValidPassword(password))  { error('password'); return; }
-    if (!shippingSelected(shipping)) { error('shipping'); return; }
+    if (!isValidCost(cost))          { error('cost'); return false; }
+    if (!isValidEmail(email))        { error('email'); return false; }
+    if (!isValidPassword(password))  { error('password'); return false; }
+    if (!shippingSelected(shipping)) { error('shipping'); return false; }
 }
 
 const error = msg => {
     switch (msg) {
-        case 'cost': alert('You must select something to buy.'); break;
+        case 'cost': alert('Invalid purchase option. Make sure you have at least 0 of each unit bought.'); break;
         case 'email': alert('Invalid Email.'); break;
         case 'password': alert('You must enter a password.'); break;
         case 'shipping': alert('You must select a shipping option.'); break;
@@ -26,13 +20,13 @@ const error = msg => {
 }
 
 const isValidCost = input => {
-    let valid = false;
+    let valid = 0;
     for(i = 0; i < input.length; i++) {
         if (input[i].value) {
-            if (input[i].value >= 0) valid = true;
+            if (input[i].value >= 0) valid++;
         }
     }
-    return valid;
+    return (valid == 3);
 }
 
 const isValidEmail = testEmail => {
