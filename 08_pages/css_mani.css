@@ -1,0 +1,48 @@
+body {
+    background-color: #181E42;
+}
+
+#box {
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-around;
+}
+
+.wrapper {
+    margin: 3em;
+    padding: 3em;
+    background-color: #1E264A;
+    color: #DEE0EB;
+    font-family: Roboto, Helvetica, sans-serif;
+    line-height: 1.5em;
+    border-radius: 2%;
+}
+
+#text {
+    height:80%;
+    overflow-y: auto;
+    /* border-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-width: 10px; */
+}
+
+#button {
+    background-color: #3C5EA8;
+    border: none;
+    color: white;
+    padding: 0.8em 1em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 8%;
+    transition-duration: 0.1s;
+}
+
+#button:hover {
+    background-color: #4D79D9;
+    color: white;
+}

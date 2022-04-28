@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <title>Slideshow</title>
+    <head>
+        <style type="text/css">
+            body {
+                background-color: #181E42;
+            }
+
+            #box {
+                width: 100%;
+                position: absolute;
+                left: 50%;
+                top: 40%;
+                transform: translate(-50%, -50%);
+                display: flex;
+                justify-content: space-around;
+            }
+
+            .slideshow-navigation {
+                padding: 2em;
+                background-color: #3C5EA8;
+                border: none;
+                color: white;
+                padding: 0.8em 1em;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                border-radius: 8%;
+                transition-duration: 0.1s;
+            }
+
+            .slideshow-navigation:hover {
+                background-color: #2C3B82;
+                color: white;
+            }
+
+            #next {
+                float: right;
+            }
+        </style>
+    </head>
+    <body>
+        <div id='box'>
+            <div id='wrapper'>
+                <img id ='slideshow' width = "540px" height = "450px" src = 'https://64.media.tumblr.com/d09258c1557ff6d6b5af1c0133b0d170/0f7567890b314bc2-0f/s540x810/0f7a73813d13c9e43b580fc9b301bbefcde12e74.gifv' />
+                <br /><br />
+                <button id = 'prev' class='slideshow-navigation' onclick='navigate("prev")'>Prev</button>
+                <button id = 'next' class='slideshow-navigation' onclick='navigate("next")'>Next</button>
+            </div>
+        </div>
+
+    <script>
+        imgLinks = ['https://64.media.tumblr.com/d09258c1557ff6d6b5af1c0133b0d170/0f7567890b314bc2-0f/s540x810/0f7a73813d13c9e43b580fc9b301bbefcde12e74.gifv',
+                    'https://64.media.tumblr.com/b78ca8d65645cc984e717560f899a6f0/0f7567890b314bc2-e1/s540x810/60fbacbd620afa342e3166f85379b22f762d1b4a.gifv',
+                    'https://64.media.tumblr.com/2e4b6d78bb9cfe1e894600ce925954e3/d8aa44ee23c88d0f-9f/s540x810/f2d07663614cd657e9d8e22ec2eee605ab0eadaa.gifv',
+                    'https://64.media.tumblr.com/2d3d0fba956ce97e9d219f6bdd40c309/0f7567890b314bc2-30/s540x810/bd7017700deb63e7933e104862da5150af45fffa.gifv',
+                    'https://64.media.tumblr.com/840b3ed55efbfd0a2b9d270ec003593f/0f7567890b314bc2-2e/s540x810/c322434f89bc375dbd797ca5b347cafc47966973.gifv'
+                    ]
+        function preloader() {
+        	if (document.images) {
+                imgLinks.forEach(src => {
+                    let images = [];
+                    let image = new Image();
+                    image.src = src;
+                    images.push(image);
+                });
+        	}
+        }
+        function addLoadEvent(func) {
+        	var oldonload = window.onload;
+        	if (typeof window.onload != 'function') {
+        		window.onload = func;
+        	} else {
+        		window.onload = function() {
+        			if (oldonload) {
+        				oldonload();
+        			}
+        			func();
+        		}
+        	}
+        }
+        addLoadEvent(preloader);
+
+        const navigate = method => {
+            currentImg = document.getElementById('slideshow');
+            currentIndex = imgLinks.indexOf(currentImg.src);
+            let newIndex;
+            switch (method) {
+                case 'prev': newIndex = (currentIndex > 0)                   ? --currentIndex : currentIndex = imgLinks.length - 1; break;
+                case 'next': newIndex = (currentIndex < imgLinks.length - 1) ? ++currentIndex : currentIndex = 0;                   break;
+            }
+            currentImg.src = imgLinks[newIndex];
+        }
+
+    </script>
+    </body>
+</html>

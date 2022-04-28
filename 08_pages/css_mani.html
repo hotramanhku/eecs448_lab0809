@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <title>Profile</title>
+    <head>
+        <link rel="stylesheet" href="css_mani.css">
+    </head>
+    <body>
+        <div id='box'>
+            <div id='text' class='wrapper'>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc fermentum vehicula neque, id gravida eros lobortis vel. Aliquam eu orci interdum, tincidunt sem a, commodo erat. Phasellus bibendum metus at arcu congue, commodo lacinia risus suscipit. Integer vitae sagittis massa. Suspendisse bibendum tincidunt dolor, mollis feugiat lorem consequat a. Quisque at felis vestibulum, mattis neque ac, cursus lacus. Maecenas diam nisi, consequat vel nisi vitae, ultricies placerat elit. Maecenas lacinia suscipit tellus, vel egestas est congue quis. Fusce velit magna, accumsan vel ornare eget, pharetra sit amet ligula. Aliquam malesuada, eros ut interdum gravida, elit mi hendrerit mauris, eu aliquam augue purus at tellus. Aliquam mollis, elit sed sollicitudin varius, eros leo molestie odio, a tempor tortor enim a lorem.</p>
+
+                <p>Integer viverra ac urna sit amet venenatis. Cras sit amet placerat quam. Pellentesque facilisis eu velit nec eleifend. Donec ac velit ac purus commodo fringilla. Nunc pharetra, urna ac dictum bibendum, velit orci aliquam ex, eu venenatis ipsum arcu id metus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nunc ultrices varius semper. Quisque facilisis vitae nibh eget egestas. Phasellus id aliquam arcu. Proin molestie hendrerit commodo.</p>
+            </div>
+            <div class='wrapper'>
+                <h2>Border</h2>
+                <label for='border-red'>Red Value:</label><br />
+                <input type='number' id='border-red' name='border-red' placeholder='0-255'><br /><br />
+                <label for='border-green'>Green Value:</label><br />
+                <input type='number' id='border-green' name='border-green' placeholder='0-255'><br /><br />
+                <label for='border-blue'>Blue Value:</label><br />
+                <input type='number' id='border-blue' name='border-blue' placeholder='0-255'><br /><br />
+                <label for='border-width'>Width:</label><br />
+                <input type='number' id='border-width' name='border-width'><br /><br /><br />
+                <h2>Background</h2>
+                <label for='background-red'>Red Value:</label><br />
+                <input type='number' id='background-red' name='background-red' placeholder='0-255' value=30><br /><br />
+                <label for='background-green'>Green Value:</label><br />
+                <input type='number' id='background-green' name='background-green' placeholder='0-255' value=38><br /><br />
+                <label for='background-blue'>Blue Value:</label><br />
+                <input type='number' id='background-blue' name='background-blue' placeholder='0-255' value=74><br /><br />
+                <br /><br />
+                <input type="submit" id="button" value="Change Colors" onclick="setColor();">
+            </div>
+        </div>
+
+        <script>
+            const borderIds = ['border-red', 'border-green', 'border-blue', 'border-width'];
+            let borderValues = [];
+
+            const backgroundIds = ['background-red', 'background-green', 'background-blue'];
+            let backgroundValues = [];
+
+            const setColor = () => {
+                borderIds.forEach(id => {
+                    let value = document.getElementById(id).value;
+                    if (value == '' || value < 0) value = 0;
+                    if (value > 255 && !id.includes('width')) {
+                        value = 255;
+                    }
+                    borderValues.push(value);
+                });
+
+                backgroundIds.forEach(id => {
+                    let value = document.getElementById(id).value;
+                    if (value == '' || value < 0) value = 0;
+                    if (value > 255) value = 255;
+                    backgroundValues.push(value);
+                });
+                document.getElementById('text').style.borderColor = `rgb(${borderValues[0]}, ${borderValues[1]}, ${borderValues[2]})`;
+                document.getElementById('text').style.borderStyle = 'solid';
+                document.getElementById('text').style.borderWidth = `${borderValues[3]}px`;
+                document.getElementById('text').style.backgroundColor = `rgb(${backgroundValues[0]}, ${backgroundValues[1]}, ${backgroundValues[2]})`;
+                document.getElementById('button').style.display = 'none';
+            }
+        </script>
+    </body>
+</html>

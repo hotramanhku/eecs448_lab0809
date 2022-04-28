@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <title>Shop</title>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id='box'>
+            <div class='wrapper'>
+                <form onsubmit="checkForm();" id="form" action="backend.php" method="post">
+                    <script src="formChecker.js"></script>
+                    <h2><em>WHAT ARE YOU PURCHASING.</em></h2>
+                    <label for="scrunkly"> <span class="costText"> $1.00 </span> &ensp; scrunkly</label><br>
+                    <input type='number' class='cost' id='scrunkly' name='cost' > units<br /><br />
+
+                    <label for="blorbo"> <span class="costText"> $2.00 </span>&ensp; blorbo</label><br>
+                    <input type='number' class='cost' id='blorbo' name='cost' > units<br /><br />
+
+                    <label for="meowmeow"> <span class="costText"> $3.00 </span>&ensp; meow meow</label><br>
+                    <input type='number' class='cost' id='meowmeow' name='cost' > units<br /><br />
+                    <br>
+
+                    <label for="email">Username/Email:</label><br>
+                    <input type="email" id="email" name="email" ><br>
+                    <br>
+                    <label for="pwd">Password:</label><br>
+                    <input type="password" id="pwd" name="pwd" ><br>
+                    <br>
+
+                    <p>Shipping:</p>
+                    <input type="radio" id="free" name="shipping" value="free" >
+                    <label for="html">Free &emsp;&ensp; 7 Days</label><br>
+                    <input type="radio" id="three" name="shipping" value="three">
+                    <label for="css">$5.00 &emsp; 3 Days</label><br>
+                    <input type="radio" id="seven" name="shipping" value="seven">
+                    <label for="javascript">$50.00 &ensp; Overnight</label><br>
+                    <br>
+
+                    <input type="submit" id="button" value="Submit"><br>
+                    <input type="reset">
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

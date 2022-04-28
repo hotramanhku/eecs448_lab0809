@@ -1,0 +1,31 @@
+body {
+    background-color: #181E42;
+}
+
+#box {
+    width: 60%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: space-around;
+}
+
+.wrapper {
+    padding: 2em;
+    background-color: #1E264A;
+    color: #DEE0EB;
+    font-family: Roboto, Helvetica, sans-serif;
+    line-height: 1.5em;
+    border-radius: 2%;
+}
+
+.cost {
+    width: 2.5em;
+}
+
+.costText {
+    color: #FCAF07;
+    font-weight: bold;
+}
